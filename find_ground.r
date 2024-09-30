@@ -49,5 +49,8 @@ volume <- median.height * pi * 0.25
 print(volume)
 
 
-# make a tin of 
+# rasterize the top of the fuel bed
+fuel.raster <- rasterize_canopy(norm.las, res = 0.002, algorithm = dsmtin())
+print(fuel.raster)
+plot(fuel.raster)
 
