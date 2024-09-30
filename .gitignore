@@ -1,0 +1,5 @@
+.Renviron
+.Rhistory
+*.bin
+*.las
+.env
