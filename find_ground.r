@@ -50,7 +50,22 @@ print(volume)
 
 
 # rasterize the top of the fuel bed
-fuel.raster <- rasterize_canopy(norm.las, res = 0.002, algorithm = dsmtin())
-print(fuel.raster)
+fuel.raster <- rasterize_canopy(norm.las, res = 0.004, algorithm = dsmtin())
 plot(fuel.raster)
+
+# get all of the individual pixels in the raster
+fuel.matrix <- as.matrix(fuel.raster)
+
+# make an empty list. Then, populate it with the volumes for each pixel
+uprights <- c()
+for (point in fuel.matrix) {
+  # we only want points that have positive height
+  if (!is.na(point) && point > 0) {
+    upright.volume <- point * 0.000016    # multiply by the area of each pixel (which is the resolution squared)
+    uprights <- append(uprights, upright.volume)      
+  }
+}
+total.volume <- sum(uprights)
+print(total.volume)
+
 
