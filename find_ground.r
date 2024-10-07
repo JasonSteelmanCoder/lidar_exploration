@@ -27,7 +27,7 @@ boxplot(x = fuel.points, main = 'Height Distribution of Fuel Bed',  ylab = "heig
 
 # rasterize the top of the fuel bed
 fuel.raster <- rasterize_canopy(norm.las, res = 0.004, algorithm = dsmtin())
-plot(fuel.raster)
+#plot(fuel.raster)
 
 # get all of the individual pixels in the raster
 fuel.matrix <- as.matrix(fuel.raster)
