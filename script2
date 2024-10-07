@@ -1,21 +1,2 @@
-import pycc
-import cccorelib
-import numpy as np
+import cloudComPy as cc
 
-CC = pycc.GetInstance()
-print(CC)
-VERTICES = np.array([
-[-0.056, 0.062, 0],
-[1, 1, 0],
-[2, 2, 0]
-])
-vertices = pycc.ccPointCloud(VERTICES[:, 0], VERTICES[:, 1], VERTICES[:, 2])
-polyline = pycc.ccPolyline(vertices)
-polyline.showColors(True)
-polyline.setClosed(False)
-
-polyline.addPointIndex(0, 3)
-
-CC.addToDB(polyline)
-CC.updateUI()
-polyline.getDisplay().display3DLabel("my polyline", cccorelib.CCVector3(1, 1, 0))
