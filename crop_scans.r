@@ -1,8 +1,8 @@
 require("lidR")
 
 # load the scan
-#las <- readLAS("C:/Users/js81535/Desktop/lidar_exploration/dry_nocones_rep1_pre.las")
-las <- readLAS("C:/Users/js81535/Desktop/lidar_exploration/ambient_cones_rep2_post.las")
+las <- readLAS("C:/Users/js81535/Desktop/lidar_exploration/dry_nocones_rep1_pre.las")
+#las <- readLAS("C:/Users/js81535/Desktop/lidar_exploration/ambient_cones_rep2_post.las")
 
 med.x <- median(las$X)
 med.y <- median(las$Y)
@@ -26,3 +26,5 @@ ground.las <- filter_poi(trimmed.las, Z < 1)
 platform.las <- filter_poi(ground.las, Z > -1.4)
 
 plot(platform.las)
+
+writeLAS(platform.las, "C:/Users/js81535/Desktop/lidar_exploration/my_new_las.las")

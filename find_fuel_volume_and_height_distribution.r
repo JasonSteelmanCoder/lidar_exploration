@@ -2,9 +2,9 @@ require("lidR")
 
 
 # load the scan
-las <- readLAS("C:/Users/js81535/Desktop/lidar_exploration/compacted_dry_nocones_rep2_pre_clipped (1).las")
+#las <- readLAS("C:/Users/js81535/Desktop/lidar_exploration/compacted_dry_nocones_rep2_pre_clipped (1).las")
 #las <- readLAS("C:/Users/js81535/Desktop/lidar_exploration/dry_nocones_rep2_post_clipped.las")
-
+las <- readLAS("C:/Users/js81535/Desktop/lidar_exploration/my_new_las.las")
 
 # classify ground and non-ground points
 mycsf <- csf(FALSE, class_threshold = 0.009, rigidness = 3)
