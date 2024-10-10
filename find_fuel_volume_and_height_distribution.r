@@ -2,9 +2,8 @@ require("lidR")
 
 
 # load the scan
-#las <- readLAS("C:/Users/js81535/Desktop/lidar_exploration/compacted_dry_nocones_rep2_pre_clipped (1).las")
+las <- readLAS("C:/Users/js81535/Desktop/lidar_exploration/compacted_dry_nocones_rep2_pre_clipped (1).las")
 #las <- readLAS("C:/Users/js81535/Desktop/lidar_exploration/dry_nocones_rep2_post_clipped.las")
-las <- readLAS("C:/Users/js81535/Desktop/lidar_exploration/my_new_las.las")
 
 # classify ground and non-ground points
 mycsf <- csf(FALSE, class_threshold = 0.009, rigidness = 3)
@@ -27,7 +26,7 @@ boxplot(x = fuel.points, main = 'Height Distribution of Fuel Bed',  ylab = "heig
 
 # rasterize the top of the fuel bed
 fuel.raster <- rasterize_canopy(norm.las, res = 0.004, algorithm = dsmtin())
-#plot(fuel.raster)
+plot(fuel.raster)
 
 # get all of the individual pixels in the raster
 fuel.matrix <- as.matrix(fuel.raster)
