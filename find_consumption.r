@@ -50,4 +50,4 @@ post.volume <- find_volume(postburn.scan)
 # find and print the percent-consumed by volume
 consumption.pct <- ((pre.volume - post.volume) / pre.volume) * 100
 
-print(consumption.pct)
+cat("Percent Consumed by Volume: ", consumption.pct)
