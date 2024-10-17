@@ -1,7 +1,7 @@
 require("lidR")
 
 # load the scan
-las <- readLAS("C:/Users/js81535/Desktop/lidar_exploration/auto_clipped_scans/ambient_cones_rep1_pre_autoclipped.las")
+las <- readLAS("C:/Users/js81535/Desktop/lidar_exploration/auto_clipped_scans/ambient_cones_rep1_autoclipped_pre.las")
 #las <- readLAS("C:/Users/js81535/Desktop/lidar_exploration/compacted_dry_nocones_rep2_pre_clipped (2).las")
 /
 # classify noise points and trim them

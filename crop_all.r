@@ -1,6 +1,7 @@
 require("lidR")
 
 # find the files in the input folder
+# all input files should end with "_pre.las" or "_post.las"
 input.folder <- "C:/Users/js81535/Desktop/lidar_exploration/unclipped_scans/LAS files/"
 input.file.names <- list.files(path = input.folder, full.names = FALSE)
 
@@ -17,7 +18,7 @@ for (file.name in input.file.names) {
   med.y <- median(las$Y)
   med.z <- median(las$Z)
   
-  print(c(med.x, med.y, med.z))
+  #print(c(med.x, med.y, med.z))
   
   # trim a 2m square around the median position of all the points in the scan
   top <- med.y + 1
@@ -40,6 +41,12 @@ for (file.name in input.file.names) {
   #plot(platform.las)
   
   # write the cropped scan to a file in the output folder.
-  new.file.name <- sub("\\.las$", "_autoclipped.las", file.name)
+  cat("processing ", file.name)  
+  if (grepl('_pre\\.las$', file.name)) {
+    new.file.name <- sub("_pre\\.las$", "_autoclipped_pre.las", file.name)
+  } else if (grepl('_post\\.las$', file.name)) {
+    new.file.name <- sub("_post\\.las$", "_autoclipped_post.las", file.name)
+  }
+  cat("stored as ", new.file.name)
   writeLAS(platform.las, file.path(output.folder, new.file.name))
 }

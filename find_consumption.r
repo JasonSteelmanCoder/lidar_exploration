@@ -1,8 +1,8 @@
 require("lidR")
 
 # put the path to your pre and post scans here
-preburn.scan <- readLAS("C:/Users/js81535/Desktop/lidar_exploration/auto_clipped_scans/ambient_cones_rep1_pre_autoclipped.las")
-postburn.scan <- readLAS("C:/Users/js81535/Desktop/lidar_exploration/auto_clipped_scans/ambient_cones_rep1_post_autoclipped.las")
+preburn.scan <- readLAS("C:/Users/js81535/Desktop/lidar_exploration/auto_clipped_scans/ambient_cones_rep1_autoclipped_pre.las")
+postburn.scan <- readLAS("C:/Users/js81535/Desktop/lidar_exploration/auto_clipped_scans/ambient_cones_rep1_autoclipped_post.las")
 
 
 # define a function for finding the volume of a scan
