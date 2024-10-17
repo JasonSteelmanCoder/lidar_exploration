@@ -1,8 +1,10 @@
 require("lidR")
 
+# ENTER THE MASS OF THE FUEL HERE BEFORE RUNNING!
+fuel.mass <- 738.24
+
 # load the scan
 las <- readLAS("C:/Users/js81535/Desktop/lidar_exploration/auto_clipped_scans/ambient_cones_rep1_autoclipped_pre.las")
-#las <- readLAS("C:/Users/js81535/Desktop/lidar_exploration/compacted_dry_nocones_rep2_pre_clipped (2).las")
 
 # classify noise points and trim them
 las <- classify_noise(las, sor(k=10, m=8))
@@ -14,17 +16,6 @@ las <- classify_ground(las, mycsf)
 
 # normalize heights from the ground and plot the scan
 norm.las <- normalize_height(las, tin())
-
-plot(norm.las, legend = TRUE, color = 'Z')
-
-print(attributes(norm.las))
-
-
-# find height distribution and plot it
-fuel.points <- Filter(function(x) x > 0,  attributes(norm.las)$data$Z)
-
-boxplot(x = fuel.points, main = 'Height Distribution of Fuel Bed',  ylab = "heights (m)")
-
 
 # rasterize the top of the fuel bed
 fuel.raster <- rasterize_canopy(norm.las, res = 0.004, algorithm = dsmtin())
@@ -43,7 +34,10 @@ for (point in fuel.matrix) {
   }
 }
 total.volume <- sum(uprights)
-print(total.volume)
+
+bulk.density <- fuel.mass / total.volume
+
+print(bulk.density)
 
 
 
