@@ -1,13 +1,13 @@
 require("lidR")
 
-# put the path to your pre and post scans here
+# put the paths to your pre- and post-burn scans here
 preburn.scan <- readLAS("C:/Users/js81535/Desktop/lidar_exploration/auto_clipped_scans/ambient_cones_rep1_autoclipped_pre.las")
 postburn.scan <- readLAS("C:/Users/js81535/Desktop/lidar_exploration/auto_clipped_scans/ambient_cones_rep1_autoclipped_post.las")
 
 
 # define a function for finding the volume of a scan
 find_volume <- function(scan) {
-
+  
   # classify noise points and trim them
   scan <- classify_noise(scan, sor(k=10, m=8))
   scan <- filter_poi(scan, Classification != 18)
@@ -40,7 +40,7 @@ find_volume <- function(scan) {
   }
   total.volume <- sum(uprights)
   return(total.volume)
-
+  
 }
 
 # find the volumes of pre- and post-burn scans
@@ -50,4 +50,6 @@ post.volume <- find_volume(postburn.scan)
 # find and print the percent-consumed by volume
 consumption.pct <- ((pre.volume - post.volume) / pre.volume) * 100
 
-cat("Percent Consumed by Volume: ", consumption.pct)
+cat("Percent Consumed by Volume:", consumption.pct)
+
+
