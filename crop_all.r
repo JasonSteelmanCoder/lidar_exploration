@@ -46,6 +46,8 @@ for (file.name in input.file.names) {
     new.file.name <- sub("_pre\\.las$", "_autoclipped_pre.las", file.name)
   } else if (grepl('_post\\.las$', file.name)) {
     new.file.name <- sub("_post\\.las$", "_autoclipped_post.las", file.name)
+  } else {
+    new.file.name <- file.name
   }
   cat("stored as ", new.file.name)
   writeLAS(platform.las, file.path(output.folder, new.file.name))
