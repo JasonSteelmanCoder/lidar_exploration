@@ -14,7 +14,7 @@ input.folder <- "C:/Users/js81535/Desktop/lidar_exploration/unclipped_scans/LAS 
 # the table should have one row for each pre-burn/post-burn pair of scans in the input file
 input.csv <- "C:/Users/js81535/Desktop/lidar_exploration/names_and_masses.csv"
 
-# USER: set the location where the output should go
+# USER: set the location where the output should go (the cropped scans and the csv file will go to this folder.)
 output.folder <- "C:/Users/js81535/Desktop/lidar_exploration/autoclipped_scans_for_analysis"
 
 # grab data from the folder and csv file
@@ -78,7 +78,7 @@ for (file.name in all.files) {
   
   #plot(trimmed.las)
   
-  # crop out the cieling
+  # crop out the ceiling
   ground.las <- filter_poi(trimmed.las, Z < 1)
   
   #plot(ground.las)
