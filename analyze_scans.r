@@ -129,8 +129,7 @@ find.hdv <- function(file.name, pre.post, output.row) {
   median.height <- median(fuel.points)
   q3.height <- quantile(fuel.points, probs = 0.75, names=FALSE)[1]
   max.height <- max(fuel.points)
-  # . . . . . . . 
-  
+
   
   # rasterize the top of the fuel bed
   fuel.raster <- rasterize_canopy(norm.las, res = 0.004, algorithm = dsmtin())
@@ -149,13 +148,22 @@ find.hdv <- function(file.name, pre.post, output.row) {
   }
   total.volume <- sum(uprights)
   
-  print(pre.post)
-  print(min.height)
-  print(q1.height)
-  print(median.height)
-  print(q3.height)
-  print(max.height)
-  print(total.volume)  
+  if (pre.post == 'pre') {
+    output.data[output.row, "min_height_pre"] <<- min.height
+    output.data[output.row, "q1_height_pre"] <<- q1.height
+    output.data[output.row, "median_height_pre"] <<- median.height
+    output.data[output.row, "q3_height_pre"] <<- q3.height
+    output.data[output.row, "max_height_pre"] <<- max.height
+    output.data[output.row, "volume_pre"] <<- total.volume
+  } else if (pre.post == 'post') {
+    output.data[output.row, "min_height_post"] <<- min.height
+    output.data[output.row, "q1_height_post"] <<- q1.height
+    output.data[output.row, "median_height_post"] <<- median.height
+    output.data[output.row, "q3_height_post"] <<- q3.height
+    output.data[output.row, "max_height_post"] <<- max.height
+    output.data[output.row, "volume_post"] <<- total.volume
+  }
+  print('...')
 }
 
 # find height distribution and volume for each file and add it to the output data frame
@@ -172,3 +180,12 @@ for (i in 1:nrow(input.data)) {
   find.hdv(pre.name, 'pre', i)
   find.hdv(post.name, 'post', i)
 }
+
+# find bulk densities and consumption
+output.data$bulk_density_pre <- output.data$pre_mass / output.data$volume_pre
+output.data$bulk_density_post <- output.data$post_mass / output.data$volume_post
+
+output.data$consumption_by_volume <- ((output.data$volume_pre - output.data$volume_post) / output.data$volume_pre) * 100
+output.data$consumption_by_mass <- ((output.data$pre_mass - output.data$post_mass) / output.data$pre_mass) * 100
+
+print(output.data)
