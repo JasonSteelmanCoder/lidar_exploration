@@ -4,3 +4,4 @@
 *.las
 .env
 *.xlsx
+data_on_scans.csv
