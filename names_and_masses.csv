@@ -1,0 +1,24 @@
+pre_file_name,post_file_name,pre_mass,post_mass
+ambient_cones_rep1_pre.las                    ,ambient_cones_rep1_post.las                   ,738.24,103.2
+ambient_cones_rep2_pre.las                    ,ambient_cones_rep2_post.las                   ,736.14,101.6
+ambient_cones_rep3_pre.las                    ,ambient_cones_rep3_post.las                   ,740.17,122.6
+ambient_nocones_rep1_pre.las                  ,ambient_nocones_rep1_post.las                 ,498,103.6
+ambient_nocones_rep2_pre.las                  ,ambient_nocones_rep2_post.las                 ,500,94.8
+ambient_nocones_rep3_pre.las                  ,ambient_nocones_rep3_post.las                 ,500,64.2
+compacted_ambient_cones_rep1_smushed_pre.las  ,compacted_ambient_cones_rep1_post.las         ,788.08,54
+compacted_ambient_cones_rep2_smushed_pre.las  ,compacted_ambient_cones_rep2_post.las         ,798.1,55
+compacted_ambient_cones_rep3_smushed_pre.las  ,compacted_ambient_cones_rep3_post.las         ,794.31,62.8
+compacted_ambient_nocones_rep2_smushed_pre.las,compacted_ambient_nocones_rep2_post.las       ,500,50.02
+compacted_ambient_nocones_rep3_smushed_pre.las,compacted_ambient_nocones_rep3_post.las       ,500,52.2
+compacted_dry_cones_rep1_smushed_pre.las      ,compacted_dry_cones_rep1_post.las             ,694.96,59
+compacted_dry_cones_rep2_smushed_pre.las      ,compacted_dry_cones_rep2_post.las             ,739.98,78.2
+compacted_dry_cones_rep3_smushed_pre.las      ,compacted_dry_cones_rep3_post.las             ,734.91,56.2
+compacted_dry_nocones_rep1_smushed_pre.las    ,compacted_dry_nocones_rep1_post.las           ,461.21,45
+compacted_dry_nocones_rep2_smushed_pre.las    ,compacted_dry_nocones_rep2_post.las           ,402.41,57.2
+compacted_dry_nocones_rep3_smushed_pre.las    ,compacted_dry_nocones_rep3_post.las           ,454.31,56.8
+dry_cones_rep1_pre.las                        ,dry_cones_rep1_post.las                       ,664.94,68.6
+dry_cones_rep2_pre.las                        ,dry_cones_rep2_post.las                       ,664.36,60.2
+dry_cones_rep3_pre.las                        ,dry_cones_rep3_post.las                       ,658.91,53.4
+dry_nocones_rep1_pre.las                      ,dry_nocones_rep1_post.las                     ,500,54.2
+dry_nocones_rep2_pre.las                      ,dry_nocones_rep2_post.las                     ,460.3,74
+dry_nocones_rep3_pre.las         ,dry_nocones_rep3_post.las                     ,536.23,51.8
