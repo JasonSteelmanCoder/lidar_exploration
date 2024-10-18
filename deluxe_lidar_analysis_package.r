@@ -189,4 +189,6 @@ output.data$consumption_by_volume <- ((output.data$volume_pre - output.data$volu
 output.data$consumption_by_mass <- ((output.data$pre_mass - output.data$post_mass) / output.data$pre_mass) * 100
 
 print(output.data)
-write.csv(output.data, output.folder, row.names = FALSE)
+write.csv(output.data, file.path(output.folder, "data_on_scans.csv"), row.names = FALSE)
+
+
