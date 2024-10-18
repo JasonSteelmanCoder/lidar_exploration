@@ -181,14 +181,15 @@ for (i in 1:nrow(input.data)) {
   find.hdv(post.name, 'post', i)
 }
 
-# find bulk densities and consumption
+# add bulk densities and consumption to the data frame
 output.data$bulk_density_pre <- output.data$pre_mass / output.data$volume_pre
 output.data$bulk_density_post <- output.data$post_mass / output.data$volume_post
 
 output.data$consumption_by_volume <- ((output.data$volume_pre - output.data$volume_post) / output.data$volume_pre) * 100
 output.data$consumption_by_mass <- ((output.data$pre_mass - output.data$post_mass) / output.data$pre_mass) * 100
 
-print(output.data)
-write.csv(output.data, file.path(output.folder, "data_on_scans.csv"), row.names = FALSE)
+# write the data to a csv file
+cat("Your data can be found at \'", file.path(output.folder, "scans_data.csv"), "\'\n")
+write.csv(output.data, file.path(output.folder, "scans_data.csv"), row.names = FALSE)
 
 
