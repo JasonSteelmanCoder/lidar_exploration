@@ -1,8 +1,13 @@
 require("lidR")
 
+# USER: type the path to your input .las file here:
+input.path <- "C:/Users/js81535/Desktop/lidar_exploration/dry_nocones_rep1_pre.las"
+
+# USER: type the path and file name for you output here:
+output.path <- "C:/Users/js81535/Desktop/lidar_exploration/my_new_las.las"
+
 # load the scan
-las <- readLAS("C:/Users/js81535/Desktop/lidar_exploration/dry_nocones_rep1_pre.las")
-#las <- readLAS("C:/Users/js81535/Desktop/lidar_exploration/ambient_cones_rep2_post.las")
+las <- readLAS(input.path)
 
 # find the median location of all the points in the scan
 med.x <- median(las$X)
@@ -36,4 +41,4 @@ platform.las <- filter_poi(platform.las, Classification != 18)
 plot(platform.las)
 
 # write the output to a new file
-writeLAS(platform.las, "C:/Users/js81535/Desktop/lidar_exploration/my_new_las.las")
+writeLAS(platform.las, output.path)

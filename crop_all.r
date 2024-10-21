@@ -1,11 +1,11 @@
 require("lidR")
 
-# find the files in the input folder
+# USER: write the path to your input folder here.
 # all input files should end with "_pre.las" or "_post.las"
 input.folder <- "C:/Users/js81535/Desktop/lidar_exploration/unclipped_scans/LAS files/"
 input.file.names <- list.files(path = input.folder, full.names = FALSE)
 
-# set the location where the output should go
+# USER: write the path to your output folder here.
 output.folder <- "C:/Users/js81535/Desktop/lidar_exploration/auto_clipped_scans"
 
 # loop through all of the files in the input folder
