@@ -1,3 +1,6 @@
+# This program takes in the paths to two cropped .las scans: one preburn and one postburn. 
+# It calculates the percent consumed by volume, and prints it to the console.
+
 require("lidR")
 
 # USER: put the paths to your pre- and post-burn scans here

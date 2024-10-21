@@ -1,3 +1,15 @@
+# This program takes a raw scan (of the whole lab) and crops 
+# it down to only the fire platform and  the fuel bed. 
+# It also denoises the cropped scan.
+# The output is a cropped, denoised .las file, saved to the 
+# output.path.
+
+# note: this program finds the fire platform by calculating 
+# the median x and y coordinates of all points in the cloud.
+# This program may or may not work when experiments have 
+# different geometries (i.e. when the platform is not in the 
+# middle of the raw scan) 
+
 require("lidR")
 
 # USER: type the path to your input .las file here:

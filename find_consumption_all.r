@@ -1,3 +1,7 @@
+# This program takes in a folder with pre and post-burn scans and outputs a csv 
+# file with the percent consumed by volume for each pair. 
+# Read the directions carefully for inputting a folder of scans.
+
 require("lidR")
 
 # the input to this program is a folder with pairs of pre- and post-burn scans.

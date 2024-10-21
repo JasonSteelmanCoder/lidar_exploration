@@ -1,3 +1,6 @@
+# This program takes in a folder of raw .las scans (of the whole lab). 
+# It outputs a folder of cropped, denoised .las scans only including the fire platform and fuel bed.
+
 require("lidR")
 
 # USER: write the path to your input folder here.

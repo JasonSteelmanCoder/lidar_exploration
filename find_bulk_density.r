@@ -1,3 +1,7 @@
+# This program lets you manually enter the fuel mass for a scan, along with the 
+# path to that scan. It calculates the bulk density of that scan and prints it 
+# to the console in grams per cubic meter.
+
 require("lidR")
 
 # ENTER THE MASS OF THE FUEL HERE BEFORE RUNNING!

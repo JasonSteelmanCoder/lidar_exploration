@@ -1,3 +1,7 @@
+# This program takes in the path to a cropped .las file. 
+# It plots the height distribution of the fuel bed and 
+# prints the total volume of the bed to the console.
+
 require("lidR")
 
 # USER: type the path to your input file here:
@@ -18,7 +22,7 @@ las <- classify_ground(las, mycsf)
 # normalize heights from the ground and plot the scan
 norm.las <- normalize_height(las, tin())
 
-plot(norm.las, legend = TRUE, color = 'Z')
+# plot(norm.las, legend = TRUE, color = 'Z')
 
 print(attributes(norm.las))
 
@@ -31,7 +35,7 @@ boxplot(x = fuel.points, main = 'Height Distribution of Fuel Bed',  ylab = "heig
 
 # rasterize the top of the fuel bed
 fuel.raster <- rasterize_canopy(norm.las, res = 0.004, algorithm = dsmtin())
-plot(fuel.raster)
+#plot(fuel.raster)
 
 # get all of the individual pixels in the raster
 fuel.matrix <- as.matrix(fuel.raster)
