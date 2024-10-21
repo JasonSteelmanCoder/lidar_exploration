@@ -89,7 +89,7 @@ for (file.name in all.files) {
   #plot(platform.las)
   
   # classify noise points and trim them
-  platform.las <- classify_noise(platform.las, sor(k=10, m=2.5))
+  platform.las <- classify_noise(platform.las, sor(k=10, m=2))
   denoised.las <- filter_poi(platform.las, Classification != 18)
   
   # write the cropped scan to a file in the output folder.

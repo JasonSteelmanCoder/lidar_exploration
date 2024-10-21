@@ -40,6 +40,10 @@ for (file.name in input.file.names) {
   
   #plot(platform.las)
   
+  # classify noise points and trim them
+  platform.las <- classify_noise(platform.las, sor(k=10, m=2))
+  platform.las <- filter_poi(platform.las, Classification != 18)
+  
   # write the cropped scan to a file in the output folder.
   cat("processing ", file.name)  
   if (grepl('_pre\\.las$', file.name)) {

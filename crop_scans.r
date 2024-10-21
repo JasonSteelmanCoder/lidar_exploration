@@ -24,10 +24,14 @@ trimmed.las <- clip_rectangle(las, xleft = left, ybottom = bottom, xright = righ
 # crop out the cieling
 ground.las <- filter_poi(trimmed.las, Z < 1)
 
-plot(ground.las)
+# plot(ground.las)
 
 # crop out the floor
 platform.las <- filter_poi(ground.las, Z > -1.4)
+
+# classify noise points and trim them
+platform.las <- classify_noise(platform.las, sor(k=10, m=2))
+platform.las <- filter_poi(platform.las, Classification != 18)
 
 plot(platform.las)
 
