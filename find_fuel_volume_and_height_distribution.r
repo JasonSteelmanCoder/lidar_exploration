@@ -9,8 +9,9 @@ las <- classify_noise(las, sor(k=10, m=8))
 las <- filter_poi(las, Classification != 18)
 
 # classify ground and non-ground points
-mycsf <- csf(FALSE, class_threshold = 0.009, rigidness = 3)
+mycsf <- csf(FALSE, class_threshold = 0.01, rigidness = 3, cloth_resolution = 0.9)
 las <- classify_ground(las, mycsf)
+#plot(las, color = 'Classification')
 
 # normalize heights from the ground and plot the scan
 norm.las <- normalize_height(las, tin())

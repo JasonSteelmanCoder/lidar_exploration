@@ -116,7 +116,7 @@ find.hdv <- function(file.name, pre.post, output.row) {
   las <- filter_poi(las, Classification != 18)
   
   # classify ground and non-ground points
-  mycsf <- csf(FALSE, class_threshold = 0.009, rigidness = 3)
+  mycsf <- csf(FALSE, class_threshold = 0.01, rigidness = 3, cloth_resolution = 0.9)
   las <- classify_ground(las, mycsf)
   
   # normalize heights from the ground
