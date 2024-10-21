@@ -1,6 +1,6 @@
 require("lidR")
 
-# put the paths to your pre- and post-burn scans here
+# USER: put the paths to your pre- and post-burn scans here
 preburn.scan <- readLAS("C:/Users/js81535/Desktop/lidar_exploration/auto_clipped_scans/ambient_cones_rep1_autoclipped_pre.las")
 postburn.scan <- readLAS("C:/Users/js81535/Desktop/lidar_exploration/auto_clipped_scans/ambient_cones_rep1_autoclipped_post.las")
 

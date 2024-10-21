@@ -3,10 +3,10 @@ require("lidR")
 # the input to this program is a folder with pairs of pre- and post-burn scans.
 # PAIRED SCANS NEED TO HAVE IDENTICAL NAMES WITH THE SUFFIXes "_pre.las" AND "_post.las"
 # e.g. "my_las_scan_pre.las" and "my_las_scan_post.las"
-# put the path to your input folder here:
+# USER: put the path to your input folder here:
 input.folder <- "C:/Users/js81535/Desktop/lidar_exploration/auto_clipped_scans/"
 
-# set the path and file name for the csv output to be saved to:
+# USER: set the path and file name for the csv output to be saved to:
 output.path <- 'C:/Users/js81535/Desktop/lidar_exploration/consumed_volume.csv'
 
 # go through folder and find all the .las files ending in "_pre" and "_post"
