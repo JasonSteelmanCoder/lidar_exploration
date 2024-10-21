@@ -88,6 +88,10 @@ for (file.name in all.files) {
   
   #plot(platform.las)
   
+  # classify noise points and trim them
+  platform.las <- classify_noise(platform.las, sor(k=10, m=2.5))
+  denoised.las <- filter_poi(platform.las, Classification != 18)
+  
   # write the cropped scan to a file in the output folder.
   cat("processing ", file.name, '...\n')  
   if (grepl('_pre\\.las$', file.name)) {
@@ -98,7 +102,7 @@ for (file.name in all.files) {
     new.file.name <- file.name
   }
   cat("stored as ", new.file.name, '\n')
-  writeLAS(platform.las, file.path(output.folder, new.file.name))
+  writeLAS(denoised.las, file.path(output.folder, new.file.name))
 }
 
 
@@ -110,10 +114,6 @@ for (file.name in all.files) {
 find.hdv <- function(file.name, pre.post, output.row) {
   # load the scan
   las <- readLAS(file.path(output.folder, file.name))
-  
-  # classify noise points and trim them
-  las <- classify_noise(las, sor(k=10, m=8))
-  las <- filter_poi(las, Classification != 18)
   
   # classify ground and non-ground points
   mycsf <- csf(FALSE, class_threshold = 0.01, rigidness = 3, cloth_resolution = 0.9)
@@ -190,6 +190,6 @@ output.data$consumption_by_mass <- ((output.data$pre_mass - output.data$post_mas
 
 # write the data to a csv file
 write.csv(output.data, file.path(output.folder, "scans_data.csv"), row.names = FALSE)
-cat("Your data can be found at \'", file.path(output.folder, "scans_data.csv"), "\'\n")
+cat("\nYour data can be found at \'", file.path(output.folder, "scans_data.csv"), "\'\n")
 
 
