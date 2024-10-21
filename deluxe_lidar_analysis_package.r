@@ -163,7 +163,7 @@ find.hdv <- function(file.name, pre.post, output.row) {
     output.data[output.row, "max_height_post"] <<- max.height
     output.data[output.row, "volume_post"] <<- total.volume
   }
-  print('...')
+  cat('...')
 }
 
 # find height distribution and volume for each file and add it to the output data frame
